@@ -24,5 +24,5 @@ def solution(id_list, report, k):
         if len(value) >= k:
             for person in value:
                 answer[id_list.index(person)] += 1
-
+                
     return answer
