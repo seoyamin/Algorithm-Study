@@ -14,7 +14,8 @@ int solution(vector<int> priorities, int location) {
         q.push({priorities[i],i});
     }
 
-// 큐와 우선순위 큐가 빌 때까지
+  
+// 정답이 나올 
     while(!q.empty()&&!pq.empty()){
       // 현재가 가장 높은 우선순위라면 => 큐에서 pop
         if(q.front().first==pq.top()){ // priority
