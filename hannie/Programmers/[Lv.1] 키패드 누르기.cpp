@@ -47,7 +47,7 @@ string solution(vector<int> numbers, string hand) {
                         int dis_l = abs(x - xl) + abs(y - yl);
                         int dis_r = abs(x - xr) + abs(y - yr);
                         if (dis_l == dis_r) {
-                            if (hand[0] == 'l') {
+                            if (hand[0] == 'l') { // 'left' 일 
                                 left_num = numbers[i];
                                 answer.push_back('L');
                             }
