@@ -25,7 +25,7 @@ int solution(string s) {
         if(cnt>1) convert+=to_string(cnt);
 
         convert += temp;
-        if(answer > convert.size()) 
+        if(answer > convert.size()) // convert.size()의 크기가 더 작을 경우 리턴
             answer = convert.size(); 
     }
     return answer;
