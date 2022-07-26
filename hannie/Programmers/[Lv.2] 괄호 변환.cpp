@@ -41,7 +41,7 @@ string solution(string p) {
     }
 
     if(isRight(u))
-        return u+solution(v);
+        return u+solution(v); // u가 맞을 경우엔 그대로 리턴
 
     string answer = "("+solution(v)+")";
     for(int i=1; i<u.size()-1; i++){
