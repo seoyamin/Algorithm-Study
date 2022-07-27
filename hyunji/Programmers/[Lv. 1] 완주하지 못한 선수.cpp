@@ -13,7 +13,7 @@ string solution(vector<string> participant, vector<string> completion) {
     //한명을 제외하고 모두 완주했으므로 하나씩 비교 후 completion에 없는 참가자만 반환
 	for (int i = 0; i < participant.size(); i++)
 	{
-		if (participant[i] != completion[i])
+		if(participant[i] != completion[i])
 			return participant[i];
 	}
 }
