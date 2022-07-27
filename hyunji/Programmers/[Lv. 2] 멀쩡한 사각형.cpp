@@ -8,7 +8,7 @@ int GetGcd(int h, int w) //최대공약수 구하는 함수
         c = w % h;
         w = h;
         h = c;
-    }
+    } 
     return w;
 }
 
