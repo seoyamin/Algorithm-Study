@@ -24,9 +24,9 @@ string solution(string p) {
     if(p=="") return p; // p가 빈 문자열일 경우, 빈 문자열을 반환.
 
     string u,v;
-    int cnt=0; int ans=0;
+    int cnt=0; 
 
-    for(int i=0; i<p.size(); i++){
+    for(int i=0; i<p.size(); i++){ // 예제 : "()))((()"
 
         if(p[i]=='(')
             cnt++;
@@ -34,19 +34,19 @@ string solution(string p) {
             cnt--;
 
         if(cnt==0){
-            u=p.substr(0,i+1);
-            v=p.substr(i+1);
+            u=p.substr(0,i+1); // => u : ()
+            v=p.substr(i+1); // => v: ))((() 
             break;
         }
     }
 
-    if(isRight(u))
-        return u+solution(v); // u가 맞을 경우엔 그대로 리턴
+    if(isRight(u))// u가 맞을 경우엔 그대로 리턴
+        return u+solution(v);  // => 2턴 : u: ))(( v:()
 
     string answer = "("+solution(v)+")";
     for(int i=1; i<u.size()-1; i++){
         if(u[i]=='(')
-            answer+=")";
+            answer+=")"; // => u:))(( -> u: (())
         else
             answer+="(";
     }
