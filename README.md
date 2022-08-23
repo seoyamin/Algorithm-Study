@@ -2,7 +2,7 @@
 
 ### 운영 방식
 - 스터디 시간 : 매주 `화요일 오후 11시`
-- seoyamin → sukyeongs → hannie → sophia-0717 순서로 수요일 24:00까지 문제 선정 및 공유
+- seoyamin → hannie → heejin 순서로 수요일 24:00까지 문제 선정 및 공유
 - 주석으로 설명 자세하게 쓰기
 </br>
 
