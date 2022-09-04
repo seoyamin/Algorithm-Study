@@ -50,8 +50,21 @@ string toJaden(const string& s) {
 }
 
 
+string toJaden_BETTER(const string& s) {
+    string result = "";
+
+    result += toupper(s[0]);
+    
+    for(int i=1 ; i<s.size() ; i++) {
+        s[i-1] == ' ' ? result += toupper(s[i]) : result += tolower(s[i]);
+    }
+    
+    return result;
+}
+
+
 
 string solution(string s) {
-    string answer = toJaden(s);
+    string answer = toJaden_BETTER(s);
     return answer;
 }
