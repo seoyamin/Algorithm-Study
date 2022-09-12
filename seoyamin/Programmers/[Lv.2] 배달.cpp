@@ -28,7 +28,7 @@ void dijkstra(int start) {
             //  이동시간 :  (노드1 -> 현재노드v -> 인접노드vr)  <  (노드1 -> 인접노드vr) 인 경우
             if(minTime[v] + tr < minTime[vr]) {  
                 minTime[vr] = minTime[v] + tr;   // 최솟값으로 이동시간 갱신
-                pq.push(make_pair(vr, -tr));
+                pq.push(make_pair(vr, tr));
             }
         }
     }
