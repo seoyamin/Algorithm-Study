@@ -1,0 +1,77 @@
+## 완성하지 못한 코드 21.4점 ## 
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int solution(vector<vector<string>> relation) {
+    int answer = 0;
+    // 컬럼, 로 길이
+    int columns = relation[0].size();
+    int rows = relation.size();
+
+    // 초기화
+    vector<bool> overlap={}; // 비었음
+    vector<string> ans;
+
+    for(int r=0; r<columns; r++){
+        overlap={};
+        for(int i=r; i<columns; i++){ // columns 탐색: 0123 123 23 3
+
+            if(overlap.empty()){
+                
+                for(int a=0; a<rows; a++) // overlap 에 다 false = 처음
+                    overlap.push_back(false);
+
+                for(int j=0; j<rows; j++){
+                    auto iter = find(ans.begin(), ans.end(), relation[j][i]);
+                    if(iter==ans.end()){
+                        ans.push_back(relation[j][i]); // 100 200 300 400 400 600
+                    }else{
+                        overlap[j]=true; // f f f t t f 되는 것
+                        overlap[iter-ans.begin()]=true;
+                    }
+                }
+
+              
+                if(find(overlap.begin(), overlap.end(), true)==overlap.end()){
+                    
+                    answer++;
+                    break;
+                }
+
+            }
+            else if(find(overlap.begin(), overlap.end(), true)!=overlap.end()){
+       
+                // overlap 에 true(중복) 있다면
+                for(int j=0; j<rows; j++) { // f f f t t f
+                    if(overlap[j]==true){ // 3, 4 번째 자리만
+                        auto iter = find(ans.begin(), ans.end(), relation[j][i]);
+                        if(iter==ans.end()){
+                            ans.push_back(relation[j][i]);
+                            overlap[j]=false;
+                        }else{
+                            overlap[iter-ans.begin()]=true;
+                            overlap[j]=true;
+                        }
+                    }
+                }
+
+            
+                if(find(overlap.begin(), overlap.end(), true)==overlap.end()){
+                
+                    answer++;
+                    break;
+                }
+
+            }
+            ans={};
+        }
+    }
+
+
+
+    return answer;
+}
